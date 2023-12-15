@@ -1,6 +1,9 @@
 import React, { useRef, useState } from 'react'
 import Header from "./Header"
 import {checkvalidatedata} from '../utils/validate'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from '../utils/firebase';
+
 const Login = () => {
   const [IsSignInForm,setIsSignInForm]=useState(true)
   
@@ -13,6 +16,40 @@ const Login = () => {
 
    const message=checkvalidatedata(Email.current.value,Password.current.value)
    seterrormessage(message)
+    if(message) return;
+    if(!IsSignInForm)
+    {
+      createUserWithEmailAndPassword(auth,Email.current.value,Password.current.value)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorcode=error.code
+    const errorMessage ="Invalid Credential Please Check";
+    seterrormessage(errorcode+" "+errorMessage)
+    // ..
+  });
+
+    }
+   else
+    {
+      signInWithEmailAndPassword(auth,Email.current.value,Password.current.value)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorMessage ="Sorry,we can't find an account with this email address.Please try again";
+    seterrormessage(errorMessage)
+  });
+
+    }
+  
 
   }
   const toggleSignUpForm=()=>
@@ -27,20 +64,20 @@ const Login = () => {
 
            </div>
       
-      <form onSubmit={(e)=>e.preventDefault()} className='absolute bg-black w-2/6 p-10 mx-auto h-[650px] right-0 left-0 my-20 bg-opacity-90'>
-       <h1 className='text-3xl font-semibold text-white m-12'>{IsSignInForm?"Sign In":"Sign Up"}</h1>
+      <form onSubmit={(e)=>e.preventDefault()} className='absolute bg-black w-2/6 p-5 mx-auto right-0 left-0 my-20 bg-opacity-90'>
+       <h1 className='text-3xl font-semibold text-white m-8'>{IsSignInForm?"Sign In":"Sign Up"}</h1>
        {!IsSignInForm &&  
-       <input className="p-3 pl-5  text-white pr-20 m-10 flex  rounded-md  bg-stone-600 " type="text" placeholder="Full Name"/>}
-        <input ref={Email} className="p-3 pl-5  text-white pr-20 m-10 flex  rounded-md  bg-stone-600 " type="text" placeholder='Email or phone number'/>
+       <input className="p-3 pl-5  text-white pr-20 m-8 flex  rounded-md  bg-stone-600 " type="text" placeholder="Full Name"/>}
+        <input ref={Email} className="p-3 pl-5  text-white pr-20 m-8 flex  rounded-md  bg-stone-600 " type="text" placeholder='Email or phone number'/>
         
-        <input ref={Password} className="p-3 pl-5 text-white  pr-20 m-10 flex rounded-md bg-stone-600" type="text" placeholder='Password'/>
-        <p className='m-10 text-xl font-serif text-red-600'>{errormessage}</p>
+        <input ref={Password} className="p-3 pl-5 text-white  pr-20 m-8 flex rounded-md bg-stone-600" type="text" placeholder='Password'/>
+        <div className='underline text-red-600 rounded-md m-8 text-xl'>{errormessage}</div>
         <button className='rounded-md  w-40 p-2 text-xl bg-red-600 text-white m-4 ml-24'
         onClick={handlebtnclick}
         >
           {IsSignInForm?"Sign In":"Sign Up"}</button>
         
-        <div className='text-lg text-stone-400 pl-10 mt-10 flex'>{IsSignInForm?"New to Netflix?":"Already a user"}
+        <div className='text-lg text-stone-400 pl-10 mt-8 flex'>{IsSignInForm?"New to Netflix?":"Already a user"}
         <p className='text-white pl-1 hover:cursor-pointer underline' onClick={toggleSignUpForm}>
           {IsSignInForm?"Sign up now":"Sign In now"}</p>
         </div>
