@@ -1,14 +1,20 @@
 import React, { useRef, useState } from 'react'
 import Header from "./Header"
 import {checkvalidatedata} from '../utils/validate'
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile  } from "firebase/auth";
 import { auth } from '../utils/firebase';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { adduser } from '../utils/userslice';
 
 const Login = () => {
   const [IsSignInForm,setIsSignInForm]=useState(true)
   
   const[errormessage,seterrormessage]=useState(null)
+  const navigate =useNavigate()
+  const dispatch=useDispatch()
   
+  const Name=useRef(null)
   const Email=useRef(null)
   const Password=useRef(null)
 
@@ -23,8 +29,19 @@ const Login = () => {
   .then((userCredential) => {
     // Signed up 
     const user = userCredential.user;
-    console.log(user)
-    // ...
+    updateProfile(user, {
+      displayName: Name.current.value,
+      photoURL:'https://avatars.githubusercontent.com/u/151750381?v=4',
+    }).then(() => {
+      const {uid,email,displayName,photoURL} = auth.currentUser;
+      dispatch(adduser({uid:uid,email:email,displayName:displayName, photoURL:photoURL}
+        ))
+      navigate("/Browse")
+    }).catch((error) => {
+     
+      seterrormessage(error.message)
+    });
+    
   })
   .catch((error) => {
     const errorcode=error.code
@@ -41,6 +58,7 @@ const Login = () => {
     // Signed in 
     const user = userCredential.user;
     console.log(user)
+    navigate("/Browse")
     // ...
   })
   .catch((error) => {
@@ -67,7 +85,7 @@ const Login = () => {
       <form onSubmit={(e)=>e.preventDefault()} className='absolute bg-black w-2/6 p-5 mx-auto right-0 left-0 my-20 bg-opacity-90'>
        <h1 className='text-3xl font-semibold text-white m-8'>{IsSignInForm?"Sign In":"Sign Up"}</h1>
        {!IsSignInForm &&  
-       <input className="p-3 pl-5  text-white pr-20 m-8 flex  rounded-md  bg-stone-600 " type="text" placeholder="Full Name"/>}
+       <input ref={Name} className="p-3 pl-5  text-white pr-20 m-8 flex  rounded-md  bg-stone-600 " type="text" placeholder="Full Name"/>}
         <input ref={Email} className="p-3 pl-5  text-white pr-20 m-8 flex  rounded-md  bg-stone-600 " type="text" placeholder='Email or phone number'/>
         
         <input ref={Password} className="p-3 pl-5 text-white  pr-20 m-8 flex rounded-md bg-stone-600" type="text" placeholder='Password'/>
