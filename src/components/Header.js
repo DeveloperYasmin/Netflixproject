@@ -25,7 +25,7 @@ const BodyHeader = () => {
     }
   return (
     <div>
-    <div id="dropdownbtn" className='absolute z-10 w-full items-center justify-between flex bg-black bg-opacity-5'>
+    <div id="dropdownbtn" className='absolute z-10 w-full items-center justify-between flex  bg-gradient-to-b from-black'>
     
     <img className='w-52 ml-5'
         src="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-897231c7763c/4345ea78-053c-46d2-b11e-09adaef973dc/Netflix_Logo_PMS.png" alt="logo"/>
@@ -33,7 +33,7 @@ const BodyHeader = () => {
       <img className="w-10 h-10 ml-[1000px] rounded-md" src={user?.photoURL}/>
       </div>}
     <button className='pl-3 mr-20' onClick={toggledropdown}>
-             ▼
+             {isclick?"▼":"▲"}
         </button>
     </div>
        {!isclick && <div className='absolute font-semibold rounded-lg ml-[1120px] mt-20 p-3 w-44 m-2  text-white bg-gray-800 bg-opacity-70'>
