@@ -52,7 +52,7 @@ const BodyHeader = () => {
     {user && <div>
       <img className="w-10 h-10 ml-[1000px] rounded-md" src={user?.photoURL}/>
       </div>}
-    <button className='pl-3 mr-20' onClick={toggledropdown}>
+    <button className='pl-3 mr-16' onClick={toggledropdown}>
              {isclick?"▼":"▲"}
         </button>
     </div>
