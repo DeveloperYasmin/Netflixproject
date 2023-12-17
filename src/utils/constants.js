@@ -2,9 +2,18 @@ export const LOGO_URL="https://cdn.cookielaw.org/logos/dd6b162f-1a32-456a-9cfe-8
 
 export const USER_AVATAR="https://occ-0-3663-3662.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABXMrBpySF8XZ8sCkWvT8aguR_wkRNG3R8T7iwBTsIkMyYwlB6it3SFUkQreUS4BP7yzuo542K7ZoPtOd13o6SbNT3mRrFQA.png?r=6a6"
 
-export const MORE_INFO="https://cdn-icons-png.flaticon.com/128/9133/9133155.png"
+export const MORE_INFO="https://cdn-icons-png.flaticon.com/128/10446/10446866.png"
+
+
+
+
+// "https://cdn-icons-png.flaticon.com/128/9133/9133155.png"
 
 export const PLAY_INFO="https://cdn-icons-png.flaticon.com/128/27/27223.png"
+
+export const DROP_DOWN_ICON="https://cdn-icons-png.flaticon.com/128/8213/8213476.png"
+
+export const DROP_UP_ICON="https://cdn-icons-png.flaticon.com/128/8213/8213544.png"
 
 export const API_OPTIONS={
     method: 'GET',
