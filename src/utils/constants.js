@@ -10,6 +10,10 @@ export const DROP_DOWN_ICON="https://cdn-icons-png.flaticon.com/128/8213/8213476
 
 export const DROP_UP_ICON="https://cdn-icons-png.flaticon.com/128/8213/8213544.png"
 
+export const LEFT_ARROW="https://cdn-icons-png.flaticon.com/128/8213/8213500.png"
+
+export const RIGHT_ARROW="https://cdn-icons-png.flaticon.com/128/8213/8213522.png"
+
 export const API_OPTIONS={
     method: 'GET',
     headers: {
