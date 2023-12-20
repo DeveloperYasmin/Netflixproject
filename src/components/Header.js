@@ -62,13 +62,13 @@ const BodyHeader = () => {
         src={LOGO_URL} alt="logo"/>
        
     {user && <div className='flex mr-12'>
-     { showGptSearch && <select className='bg-gray-800 rounded-lg font-semibold text-lg bg-opacity-70 text-white'
+     { showGptSearch && <select className='hover:bg-zinc-900 cursor-pointer bg-gray-700 rounded-lg p-2 font-semibold text-lg bg-opacity-70 text-white'
        onChange={handlelanguageChange}>
 
         {SUPPORTED_LANGUAGE.map(lang=>  <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
        
       </select>}
-      <button className=' bg-red-600 ml-5 text-lg font-semibold rounded-lg p-2 text-white'
+      <button className='hover:bg-red-900 cursor-pointer bg-red-600 ml-5 text-lg font-semibold rounded-lg p-2 text-white'
       onClick={handleGptSearchClick}>
         {showGptSearch?"Home":"GPT Search"}</button>
       <img className="w-10 ml-5 mr-3 h-10 rounded-md" src={user?.photoURL}/>
