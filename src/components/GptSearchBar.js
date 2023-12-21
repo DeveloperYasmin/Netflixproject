@@ -2,20 +2,15 @@ import React, { useRef } from 'react'
 import lang from '../utils/languageconstant'
 import { useDispatch, useSelector } from 'react-redux'
 import openai from '../utils/openai'
-import { API_OPTIONS } from '../utils/constants'
 import { addGptMovieResults } from '../utils/gptSlice'
+import useGPTSearch from '../hooks/useGPTSearch'
 
 const GptSearchBar = () => {
   const dispatch=useDispatch()
   const langkey =useSelector(store=>store.config.lang)
   const searchtext=useRef(null)
-
-  const searchMovieTMDB=async(movie)=>{
-    const data=await fetch('https://api.themoviedb.org/3/search/movie?query='+ movie +
-    '&include_adult=false&language=en-US&page=1',API_OPTIONS)
-    const json=await data.json()
-    return json.results
-  }
+  const searchMovieTMDB=useGPTSearch()
+  
   const handleGptSearchClick= async() =>{
     console.log(searchtext.current.value)
 

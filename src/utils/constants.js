@@ -28,4 +28,4 @@ export const API_OPTIONS={
 
   export const IMG_CDN="https://image.tmdb.org/t/p/w500"
 
-   export const OPEN_AI_KEY="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"
+   export const OPEN_AI_KEY="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"
