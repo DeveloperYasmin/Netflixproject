@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import lang from '../utils/languageconstant'
 import { useDispatch, useSelector } from 'react-redux'
 import openai from '../utils/openai'
-import { addGptMovieResults } from '../utils/gptSlice'
+import { addGptMovieResults, clearMovieResults } from '../utils/gptSlice'
 import useGPTSearch from '../hooks/useGPTSearch'
 
 const GptSearchBar = () => {
@@ -26,7 +26,10 @@ const GptSearchBar = () => {
     const promiseArray=gptMovies.map((movie) => searchMovieTMDB(movie))
     const TMDBResults=await Promise.all(promiseArray)
     console.log(TMDBResults)
-    dispatch(addGptMovieResults({moviesNames: gptMovies,movieResults: TMDBResults}))
+    dispatch(addGptMovieResults({movieNames: gptMovies,movieResults: TMDBResults}))
+  }
+  const handleClearMovie=()=>{
+    dispatch(clearMovieResults())
   }
   return (
     <div className='pt-[8%] flex justify-center '>
@@ -38,6 +41,8 @@ const GptSearchBar = () => {
             onClick={handleGptSearchClick}>
                 {lang[langkey].search}</button>
         </form>
+        <button className=" text-white text-2xl ml-10 shadow-lg bg-red-600 font-semibold p-2 m-5 rounded-lg baseline hover:bg-red-600 cursor-pointer"
+                onClick={handleClearMovie}> Clear 🗑</button>
     </div>
   )
 }

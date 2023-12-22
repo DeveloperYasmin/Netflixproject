@@ -27,10 +27,10 @@ const MovieList = ({title,movies}) => {
       modules={[FreeMode, Pagination]}
       className=' max-w-[20%] lg:max-w-[100%]'
 >
-      {movies && movies.map(movie => 
+      {movies && movies?.map((movie) => 
       <SwiperSlide className='mb-8'>
       <MovieCard key={movie.id} posterPath={movie.poster_path} >
-      <div className='shadow-lg text-white rounded-xl overflow-hidden cursor-pointer group-hover:opacity-50'></div> 
+      <div className='shadow-lg text-white rounded-xl overflow-hidden cursor-pointer hover:opacity-50'></div> 
       </MovieCard>
       </SwiperSlide>
 
