@@ -56,9 +56,9 @@ const BodyHeader = () => {
     }
   return (
     <div>
-    <div className='absolute z-30 w-full items-center justify-between flex  bg-gradient-to-b from-black bg-opacity-50'>
+    <div className='absolute z-30 w-full items-center justify-between flex  bg-gradient-to-b from-black bg-opacity-50  flex-col md:flex-row'>
     
-    <img className='w-52 ml-5'
+    <img className='w-52 mx-auto md:mx-0'
         src={LOGO_URL} alt="logo"/>
        
     {user && <div className='flex mr-12'>
@@ -71,16 +71,17 @@ const BodyHeader = () => {
       <button className='hover:bg-red-900 cursor-pointer bg-red-600 ml-5 text-lg font-semibold rounded-lg p-2 text-white'
       onClick={handleGptSearchClick}>
         {showGptSearch?"Home":"GPT Search"}</button>
-      <img className="w-10 ml-5 mr-3 h-10 rounded-md" src={user?.photoURL}/>
-      <button className='' onClick={toggledropdown}>
+      <img className="hidden md:inline-block w-10 ml-5 mr-3 h-10 rounded-md" src={user?.photoURL}/>
+      <button className='hidden md:inline-block' onClick={toggledropdown}>
              {isclick?
              <img  className="w-5" src={DROP_DOWN_ICON}/>:
              <img className='w-5' src={DROP_UP_ICON}/>}
       </button>
-   
+      <button className="md:hidden ml-20 hover:cursor-pointer hover:underline text-white" onClick={handlesignout}>Sign out of Netflix</button>
+
       </div>}
     
-       {!isclick && <div className='absolute font-semibold rounded-lg ml-[1160px] mt-44 p-3 w-44 m-2  text-white bg-gray-800 bg-opacity-70'>
+       {!isclick && <div className=' absolute font-semibold rounded-lg ml-[1160px] mt-44 p-3 w-44 m-2  text-white bg-gray-800 bg-opacity-70'>
             
        <h1 className='text-lg'> {user?.displayName}</h1>
       <span>_______________________</span>

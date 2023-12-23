@@ -32,16 +32,16 @@ const GptSearchBar = () => {
     dispatch(clearMovieResults())
   }
   return (
-    <div className='pt-[8%] flex justify-center '>
-        <form className=' w-1/2  bg-stone-800 hover:bg-stone-700 cursor-pointer pl-5 grid grid-cols-12 rounded-full'
+    <div className='pt-[35%] md:pt-[8%] md:flex justify-center '>
+        <form className='w-full md:w-1/2  bg-stone-800 hover:bg-stone-700 cursor-pointer grid grid-cols-12 rounded-full'
         onSubmit={(e)=>e.preventDefault()}>
-            <input ref={searchtext} type="text" className='p-4 pl-10 m-5 col-span-9 rounded-full' 
+            <input ref={searchtext} type="text" className='p-4 m-3 col-span-9 rounded-full' 
             placeholder={lang[langkey].gptSearchPlaceholder}/>
-            <button className=' bg-red-600 hover:bg-red-900 cursor-pointer rounded-xl col-span-3 ml-4 m-6 text-white font-semibold text-xl py-2 px-4'
+            <button className=' bg-red-600 hover:bg-red-900 cursor-pointer rounded-xl col-span-3 p-4 m-2 text-white font-semibold text-xl'
             onClick={handleGptSearchClick}>
                 {lang[langkey].search}</button>
         </form>
-        <button className=" text-white text-2xl ml-10 shadow-lg bg-red-600 font-semibold p-2 m-5 rounded-lg baseline hover:bg-red-600 cursor-pointer"
+        <button className=" text-white text-2xl shadow-lg bg-red-600 font-semibold p-2 m-5 rounded-lg baseline hover:bg-red-600 cursor-pointer"
                 onClick={handleClearMovie}> Clear 🗑</button>
     </div>
   )

@@ -9,7 +9,7 @@ import {FreeMode,Pagination} from 'swiper/modules'
 const MovieList = ({title,movies}) => {
   return (
     
-    <div className='flex flex-col h-screen -mb-64'>
+    <div className='h-screen md:-mb-64 -mt-[600px] md:-mt-0 '>
       <h1 className='font-bold text-2xl text-white p-2 pb-4'>{title}</h1>
       <Swiper
       breakpoints={{
@@ -25,7 +25,7 @@ const MovieList = ({title,movies}) => {
         clickable:true
       }}
       modules={[FreeMode, Pagination]}
-      className=' max-w-[20%] lg:max-w-[100%]'
+      className=' max-w-[100%] md:max-w-[100%]'
 >
       {movies && movies?.map((movie) => 
       <SwiperSlide className='mb-8'>

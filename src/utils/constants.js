@@ -28,4 +28,4 @@ export const API_OPTIONS={
   export const SUPPORTED_LANGUAGE=[{identifier:"en",name:"English"},{identifier:"hindi",name:"Hindi"},{identifier:"spanish",name:"Spanish"}]
 
 
-   export const OPEN_AI_KEY="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"
+   export const OPEN_AI_KEY="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"
