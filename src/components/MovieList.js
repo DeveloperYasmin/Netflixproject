@@ -9,7 +9,7 @@ import {FreeMode,Pagination} from 'swiper/modules'
 const MovieList = ({title,movies}) => {
   return (
     
-    <div className='h-screen md:-mb-64 -mt-[600px] md:-mt-0 '>
+    <div className='h-screen mb-64 sm:mb-16 -mt-[550px] md:-mt-0 '>
       <h1 className='font-bold text-2xl text-white p-2 pb-4'>{title}</h1>
       <Swiper
       breakpoints={{

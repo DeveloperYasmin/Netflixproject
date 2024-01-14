@@ -68,7 +68,7 @@ const BodyHeader = () => {
         {SUPPORTED_LANGUAGE.map(lang=>  <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
        
       </select>}
-      <button className='hover:bg-red-900 cursor-pointer bg-red-600 ml-5 text-lg font-semibold rounded-lg p-2 text-white'
+      <button className='hover:bg-red-900 w-3/6 cursor-pointer bg-red-600 ml-5 text-lg font-semibold rounded-lg p-2 text-white'
       onClick={handleGptSearchClick}>
         {showGptSearch?"Home":"GPT Search"}</button>
       <img className="hidden md:inline-block w-10 ml-5 mr-3 h-10 rounded-md" src={user?.photoURL}/>

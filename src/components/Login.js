@@ -80,13 +80,13 @@ const Login = () => {
 
            </div>
       
-      <form onSubmit={(e)=>e.preventDefault()} className='absolute bg-black w-96 md:w-2/6 p-5 mx-auto right-0 left-0 my-20 bg-opacity-90'>
+      <form onSubmit={(e)=>e.preventDefault()} className='absolute bg-black w-80 md:w-2/6 p-5 mx-auto right-0 left-0 my-20 bg-opacity-90'>
        <h1 className='text-3xl font-semibold text-white m-8'>{IsSignInForm?"Sign In":"Sign Up"}</h1>
        {!IsSignInForm &&  
        <input ref={Name} className="p-3 pl-5  text-white pr-20 m-8 flex   rounded-md  bg-stone-600 " type="text" placeholder="Full Name"/>}
-        <input ref={Email} className="p-3 pl-5  text-white pr-20 m-8 flex w-72 md:w-5/6  rounded-md  bg-stone-600 " type="text" placeholder='Email'/>
+        <input ref={Email} className="p-3 pl-5  text-white pr-20 m-8 flex w-60 md:w-5/6  rounded-md  bg-stone-600 " type="text" placeholder='Email'/>
         
-        <input ref={Password} className="p-3 pl-5 text-white  pr-20 m-8 flex w-72 md:w-5/6 rounded-md bg-stone-600" type="text" placeholder='Password'/>
+        <input ref={Password} className="p-3 pl-5 text-white  pr-20 m-8 flex w-60 md:w-5/6 rounded-md bg-stone-600" type="text" placeholder='Password'/>
         <div className='underline text-red-600 rounded-md m-8 text-xl'>{errormessage}</div>
         <button className='rounded-md w-40 md:4/6  p-2 text-xl bg-red-600 text-white m-4 ml-20 md:ml-10'
         onClick={handlebtnclick}
