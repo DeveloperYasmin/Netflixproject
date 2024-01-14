@@ -77,7 +77,7 @@ const BodyHeader = () => {
              <img  className="w-5" src={DROP_DOWN_ICON}/>:
              <img className='w-5' src={DROP_UP_ICON}/>}
       </button>
-      <button className="md:hidden ml-20 hover:cursor-pointer hover:underline text-white" onClick={handlesignout}>Sign out of Netflix</button>
+      <button className="md:hidden ml-20 hover:cursor-pointer hover:underline text-white" onClick={handlesignout}>SignOut</button>
 
       </div>}
     
@@ -85,7 +85,7 @@ const BodyHeader = () => {
             
        <h1 className='text-lg'> {user?.displayName}</h1>
       <span>_______________________</span>
-            <button className="hover:cursor-pointer hover:underline " onClick={handlesignout}>Sign out of Netflix</button>
+            <button className="hover:cursor-pointer hover:underline " onClick={handlesignout}>SignOut</button>
         </div>}
     </div>
     </div>

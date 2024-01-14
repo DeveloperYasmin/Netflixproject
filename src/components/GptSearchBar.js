@@ -32,7 +32,7 @@ const GptSearchBar = () => {
     dispatch(clearMovieResults())
   }
   return (
-    <div className='pt-[35%] md:pt-[8%] md:flex justify-center '>
+    <div className='pt-[45%] md:pt-[8%] md:flex justify-center '>
         <form className='w-full md:w-1/2  bg-stone-800 hover:bg-stone-700 cursor-pointer grid grid-cols-12 rounded-full'
         onSubmit={(e)=>e.preventDefault()}>
             <input ref={searchtext} type="text" className='p-4 m-3 col-span-9 rounded-full' 
